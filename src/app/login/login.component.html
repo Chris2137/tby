@@ -1,0 +1,41 @@
+<div class="p-grid ui-fluid">
+  <div class="p-col-12">
+    <h1 class="logo-img"></h1>
+  </div>
+  <div class="p-col-12">
+    <span i18n="@@label.tradebeyond.desc">The Ultimate Sourcing App</span>
+  </div>
+  <div class="p-col-2"></div>
+  <div class="p-col-8">
+    <span class="ui-float-label">
+          <input pInputText id="username" type="text" [(ngModel)]="username"
+                 autocomplete="off" [disabled]="requirePwd" >
+          <label for="username" i18n="@@label.placeholder.username">Username</label>
+      </span>
+  </div>
+  <div class="p-col-2"></div>
+
+  <div class="p-col-2" [hidden]="!requirePwd"></div>
+  <div class="p-col-8" [hidden]="!requirePwd">
+      <span class="ui-float-label">
+          <input pInputText id="password" type="text" [(ngModel)]="password"
+                 autocomplete="off" #passwordInput>
+          <label for="username" i18n="@@label.placeholder.password">Password</label>
+      </span>
+  </div>
+  <div class="p-col-2" [hidden]="!requirePwd"></div>
+  <div class="p-col-2"></div>
+  <div class="p-col-8">
+    <button pButton class="ui-button-raised ui-button-rounded" i18n="@@label.button.check_login" label="Next"
+            (click)="checkLogin()"
+            *ngIf="!requirePwd"></button>
+    <button pButton class="ui-button-raised ui-button-rounded" i18n="@@label.button.login" label="Login"
+            (click)="login()" *ngIf="requirePwd"></button>
+  </div>
+  <div class="p-col-2"></div>
+  <div class="p-col-2"></div>
+  <div class="p-col-8">
+    <a routerLink="/register" i18n="@@label.create_new_account">Create New Account</a>
+  </div>
+  <div class="p-col-2"></div>
+</div>

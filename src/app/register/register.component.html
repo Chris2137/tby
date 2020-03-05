@@ -1,0 +1,44 @@
+  <div class="p-grid ui-fluid">
+    <div class="p-col-2">
+      <i class="pi pi-chevron-left" (click)="back()" style="font-size: 3em"></i>
+    </div>
+    <div class="p-col-10">
+      <h1 class="logo-img"></h1>
+    </div>
+    <div class="p-col-12">
+      <span i18n="@@label.register.title"> Retailer or Supplier? </span>
+    </div>
+    <div class="p-col-12">
+      <span i18n="@@label.register.content">Please tell us your primary interest in using TradeBeyond. Select one of the following.</span>
+    </div>
+    <div class="p-col-6">
+      <p-card>
+
+        <p-header>
+          <p-checkbox [(ngModel)]="isRetailer" i18n-label="@@label.checkbox.retailers" binary="true" label="Retailers"
+                      (click)="selectRetailer()" id="retailer"></p-checkbox>
+        </p-header>
+        <img src="Card" src="assets/img/tby-register-retailer.png">
+      </p-card>
+    </div>
+    <div class="p-col-6">
+      <p-card>
+        <p-header>
+          <p-checkbox [(ngModel)]="isSupplier" i18n-label="@@label.checkbox.suppliers" binary="true" label="Suppliers" (click)="selectSupplier()"></p-checkbox>
+        </p-header>
+        <img src="Card" src="assets/img/tby-register-supplier.png">
+      </p-card>
+    </div>
+    <div class="p-col-12">
+      <p class="info">
+        <span i18n="@@label.register.please_choose" *ngIf="!isRetailer && !isSupplier"> Please choose the main purpose for your company.</span>
+        <span i18n="@@label.register.retailer" *ngIf="isRetailer">We are a <span class="high-light">buying organization</span>  (E.g. A retailer, brand and/or wholesaler) interested in collaboration with suppliers or factories.</span>
+        <span i18n="@@label.register.supplier" *ngIf="isSupplier">We are a <span class="high-light">supplier/factory</span> interested in promoting products and support buyers’ product development and sourcing.</span>
+      </p>
+
+    </div>
+    <div class="p-col-12">
+      <button pButton class="ui-button-raised ui-button-rounded" i18n="@@label.button.next" label="Next" (click)="next()"
+        [disabled]="!isRetailer && !isSupplier"></button>
+    </div>
+  </div>

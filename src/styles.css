@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+.logo-img {
+  background-image: url("/assets/img/tradebeyond-logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+      width: 199px;
+      height: 44px;
+      margin: 0 auto 3px;
+}
