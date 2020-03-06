@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
 import {RegisterService} from '../register.service';
 import {ValidateHasUpperCase, ValidateHasLowerCase, ValidatePasswordMatch} from '../custom-validators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-detail',
@@ -14,13 +15,16 @@ export class RegisterDetailComponent implements OnInit {
 
   isRetailer : boolean = false;
   registrationForm;
-  submitMsg ; string;
+
+  recordId : string;
+  isFinish : boolean = false;
 
   constructor(
   private route: ActivatedRoute,
   private location: Location,
   private formBuilder: FormBuilder,
-  private registerService: RegisterService
+  private registerService: RegisterService,
+  private router: Router
   ) {
     this.registrationForm = this.formBuilder.group({
         companyName: ['', Validators.required],
@@ -30,8 +34,8 @@ export class RegisterDetailComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(8), ValidateHasUpperCase, ValidateHasLowerCase]],
         passwordConfirm: ['', [Validators.required, Validators.minLength(8)]],
         countryCode: ['', ''],
-        areaCode: ['', ''],
         phone: ['', [Validators.required]],
+        couponCode: ['', '']
         }, { validators: ValidatePasswordMatch });
   }
 
@@ -49,11 +53,19 @@ export class RegisterDetailComponent implements OnInit {
     this.location.back();
   }
 
+  backToLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
    onSubmit(customerData) {
 
-      console.warn(this.registrationForm.errors);
-      console.warn(this.registrationForm.errors.passwordMismatch);
-       console.warn('Registration form submitted', customerData);
-       this.registerService.register(customerData).subscribe(msg => this.submitMsg = msg);
+       console.log('Registration form submitted', customerData);
+       this.registerService.register(customerData).subscribe(id => this.recordId = id);
+       console.log(`Record with id ${this.recordId} created`);
+       this.isFinish = true;
+   }
+
+   resendEmail(){
+      this.registerService.resendConfirmEmail(this.recordId).subscribe(msg => console.log('email resent'));
    }
 }

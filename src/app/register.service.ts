@@ -9,7 +9,12 @@ export class RegisterService {
   constructor() { }
 
 
-  register(data): Observable<String> {
-    return of('Registration Success');
+  register(data): Observable<string> {
+    return of('new record id');
+  }
+
+  resendConfirmEmail(recordId): Observable<String> {
+    console.log(`triggered resend email for ${recordId} `);
+    return of('Confirm email resent');
   }
 }

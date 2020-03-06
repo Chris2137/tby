@@ -9,6 +9,14 @@ ul li.intro{
   list-style: none;
 }
 
+.confirm_dialog {
+  text-align : center;
+  width : 100%;
+}
+
+.bold-text {
+  font-weight : bold;
+}
 
 .warning{
   color : red;

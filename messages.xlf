@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="label.tradebeyond.desc" datatype="html">
+        <source>The Ultimate Sourcing App</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.placeholder.username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.placeholder.password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.create_new_account" datatype="html">
+        <source>Create New Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.register.title" datatype="html">
+        <source> Retailer or Supplier? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.register.content" datatype="html">
+        <source>Please tell us your primary interest in using TradeBeyond. Select one of the following.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.checkbox.retailers" datatype="html">
+        <source>Retailers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.checkbox.suppliers" datatype="html">
+        <source>Suppliers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.register.please_choose" datatype="html">
+        <source> Please choose the main purpose for your company.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.register.retailer" datatype="html">
+        <source>We are a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>buying organization<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>  (E.g. A retailer, brand and/or wholesaler) interested in collaboration with suppliers or factories.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.register.supplier" datatype="html">
+        <source>We are a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>supplier/factory<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> interested in promoting products and support buyers’ product development and sourcing.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register/register.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.company_name" datatype="html">
+        <source>Company name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.first_name" datatype="html">
+        <source>First name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.last_name" datatype="html">
+        <source>Last name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.email" datatype="html">
+        <source>Your E-mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password" datatype="html">
+        <source>Your Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password_msg1" datatype="html">
+        <source>Your password must include at minimum:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password_msg2" datatype="html">
+        <source>8 alpha or numerical characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password_msg3" datatype="html">
+        <source>1 uppercase character</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password_msg4" datatype="html">
+        <source>1 lowercase character</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.password_confirm" datatype="html">
+        <source>Password confirmation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.phone_number" datatype="html">
+        <source>Phone number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.coupon_code" datatype="html">
+        <source>Coupon code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="788ff83e282451f9339c28917d45fb5670309194" datatype="html">
+        <source>Apply a coupon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <note priority="1" from="description">##label.apply_coupon</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

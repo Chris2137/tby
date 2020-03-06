@@ -21,7 +21,5 @@ export const ValidatePasswordMatch : ValidatorFn = (control: FormGroup): Validat
   const pwd = control.get('password');
   const pwdChk = control.get('passwordConfirm');
 
-  console.log(`${pwd.value},${pwdChk.value} checking`);
-  console.log(pwd && pwdChk && pwd.value === pwdChk.value);
   return pwd && pwdChk && pwd.value === pwdChk.value ? null : { passwordMismatch: true };
 };

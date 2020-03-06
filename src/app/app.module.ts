@@ -18,6 +18,10 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {FieldsetModule} from 'primeng/fieldset';
+import {DataViewModule} from 'primeng/dataview';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {MenuItem} from 'primeng/api';
+import {PanelModule} from 'primeng/panel';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
@@ -44,15 +48,14 @@ import { ContainsCharacterInDirective } from './contains-character-in.directive'
     ButtonModule,
     CardModule,
     CheckboxModule,
+    DataViewModule,
     DropdownModule,
     InputMaskModule,
     InputTextModule,
     PasswordModule,
-    FieldsetModule
-
-
-
-
+    PanelModule,
+    FieldsetModule,
+    TabMenuModule,
 
   ],
   providers: [],

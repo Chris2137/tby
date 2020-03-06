@@ -1,91 +1,129 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
-  <div class="p-grid ui-fluid">
-    <div class="p-col-2">
-      <i class="pi pi-chevron-left" (click)="back()" style="font-size: 3em"></i>
-    </div>
-    <div class="p-col-10">
-      <h1 [ngClass]="'logo-img'"></h1>
-    </div>
-    <div class="p-col-12">
+  <div [hidden]="isFinish">
+    <div class="p-grid ui-fluid">
+      <div class="p-col-2">
+        <i class="pi pi-chevron-left" (click)="back()" style="font-size: 3em"></i>
+      </div>
+      <div class="p-col-10">
+        <h1 [ngClass]="'logo-img'"></h1>
+      </div>
+      <div class="p-col-12">
       <span class="ui-float-label">
           <input pInputText id="companyName" type="text" formControlName="companyName"
                  autocomplete="off">
           <label for="companyName" i18n="@@label.company_name">Company name</label>
       </span>
-    </div>
-    <div class="p-col-6">
+      </div>
+      <div class="p-col-6">
       <span class="ui-float-label">
           <input pInputText id="firstName" type="text" formControlName="firstName"
                  autocomplete="off">
           <label for="firstName" i18n="@@label.first_name">First name</label>
       </span>
 
-    </div>
-    <div class="p-col-6">
+      </div>
+      <div class="p-col-6">
       <span class="ui-float-label">
           <input pInputText id="lastName" type="text" formControlName="lastName"
                  autocomplete="off">
           <label for="lastName" i18n="@@label.last_name">Last name</label>
       </span>
-    </div>
-    <div class="p-col-12">
+      </div>
+      <div class="p-col-12">
       <span class="ui-float-label">
-          <input pInputText id="email" type="text" formControlName="email"
+          <input #email pInputText id="email" type="text" formControlName="email"
                  autocomplete="off">
           <label for="email" i18n="@@label.email">Your E-mail</label>
       </span>
-    </div>
-    <div class="p-col-12">
+      </div>
+      <div class="p-col-12">
       <span class="ui-float-label">
           <input pPassword id="password" type="password" formControlName="password"
                  autocomplete="off" [feedback]="false">
           <label for="password" i18n="@@label.password">Your Password</label>
       </span>
-    </div>
-    <div class="p-col-12">
-      <ul>
-        <li class="intro">
-          <span i18n="@@label.password_msg1">Your password must include at minimum:</span>
-        </li>
-        <li>
+      </div>
+      <div class="p-col-12">
+        <ul>
+          <li class="intro">
+            <span i18n="@@label.password_msg1">Your password must include at minimum:</span>
+          </li>
+          <li>
           <span i18n="@@label.password_msg2"
                 [ngClass]="{'warning' : !f.password.dirty || (f.password.errors && (f.password.errors.minlength || f.password.errors.required))}">8 alpha or numerical characters</span>
-        </li>
-        <li>
+          </li>
+          <li>
           <span i18n="@@label.password_msg3"
                 [ngClass]="{'warning' : !f.password.dirty || (f.password.errors && f.password.errors.hasUpperCase)}">1 uppercase character</span>
-        </li>
-        <li>
+          </li>
+          <li>
           <span i18n="@@label.password_msg4"
                 [ngClass]="{'warning' : !f.password.dirty || (f.password.errors && f.password.errors.hasLowerCase)}">1 lowercase character</span>
-        </li>
-      </ul>
-    </div>
-    <div class="p-col-12">
+          </li>
+        </ul>
+      </div>
+      <div class="p-col-12">
       <span class="ui-float-label">
           <input pPassword id="passwordCfm" type="password" formControlName="passwordConfirm"
                  autocomplete="off" [feedback]="false">
           <label for="passwordCfm" i18n="@@label.password_confirm">Password confirmation</label>
       </span>
-      <span class="warning"
-            *ngIf="f.password.valid && f.passwordConfirm.valid && registrationForm.errors?.passwordMismatch">Password mismatch</span>
+        <span class="warning"
+              *ngIf="f.password.valid && f.passwordConfirm.valid && registrationForm.errors?.passwordMismatch">Password mismatch</span>
+      </div>
+      <div class="p-col-4">
+        <p-inputMask formControlName="countryCode" mask="(+9999)" placeholder="(+____)"
+                     [autoClear]="false"></p-inputMask>
+      </div>
+
+      <div class="p-col-8">
+        <p-inputMask formControlName="phone" mask="99999?9999999" i18n-placeholder="@@label.phone_number"
+                     placeholder="Phone number" [autoClear]="false"></p-inputMask>
+      </div>
+      <div class="p-col-12" *ngIf="!isRetailer">
+        <p-panel i18n-header="##label.apply_coupon" header="Apply a coupon" [toggleable]="true" [collapsed]="true"
+                 [toggler]="'header'">
+          <input pInputText id="couponCode" type="text" formControlName="couponCode"
+                 autocomplete="off" i18n-placeholder="@@label.coupon_code" placeholder="Coupon code">
+        </p-panel>
+      </div>
+      <div class="p-col-12">
+        <button pButton type="submit" class="ui-button-raised ui-button-rounded" i18n="@@label.button.register"
+                label="Register" [disabled]="registrationForm.invalid"></button>
+      </div>
     </div>
-    <div class="p-col-3">
-      <p-inputMask formControlName="countryCode" mask="(+9999)" placeholder="(+____)" [autoClear]="false"></p-inputMask>
-    </div>
-    <div class="p-col-2">
-      <p-inputMask formControlName="areaCode" mask="9?99" placeholder="___" [autoClear]="false"></p-inputMask>
-    </div>
-    <div class="p-col-7">
-      <p-inputMask formControlName="phone" mask="99999?9999999" i18n-placeholder="@@label.phone_number"
-                   placeholder="Phone number" [autoClear]="false"></p-inputMask>
-    </div>
-    <div class="p-col-12">
-      <button pButton type="submit" class="ui-button-raised ui-button-rounded" i18n="@@label.button.register"
-              label="Register" [disabled]="registrationForm.invalid"></button>
-    </div>
-    <div class="p-col-12">
-      {{submitMsg}}
+  </div>
+  <div [hidden]="!isFinish">
+    <div class="p-grid ui-fluid confirm_dialog">
+      <div class="p-col-2">
+        <i class="pi pi-chevron-left" (click)="backToLogin()" style="font-size: 3em"></i>
+      </div>
+      <div class="p-col-10">
+        <h1 [ngClass]="'logo-img'"></h1>
+      </div>
+      <div class="p-col-12">
+        <h1 i18n="@@header.confirm_email">Confirm your Email</h1>
+      </div>
+      <div class="p-col-12">
+        <span i18n="@@header.confirm_email.msg1">A confirm email was sent to</span>
+      </div>
+      <div class="p-col-12 bold-text">
+        {{email.value}}
+      </div>
+      <div class="p-col-12">
+        <span i18n="@@header.confirm_email.msg2">Please check your inbox for the confirm email. Click the link in the email to confirm your email address.</span>
+      </div>
+      <div class="p-col-12">
+        <button pButton type="button" class="ui-button-raised ui-button-rounded" i18n="@@label.button.resend_confirm_email"
+                label="Resend Confirm Email" (click)="resendEmail()"></button>
+      </div>
     </div>
   </div>
 </form>
+
+
+
+
+
+
+
