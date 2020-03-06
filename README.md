@@ -6,8 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project was built on PrimeNG, run below to download PrimeNG to the project
  
-`npm install primeng --save
- npm install primeicons --save`
+`npm install primeng --save`
+`npm install primeicons --save`
 
 ## Development server
 
