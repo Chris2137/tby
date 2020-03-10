@@ -83,93 +83,332 @@
         <source>Company name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.first_name" datatype="html">
         <source>First name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.last_name" datatype="html">
         <source>Last name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.email" datatype="html">
         <source>Your E-mail</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password" datatype="html">
         <source>Your Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password_msg1" datatype="html">
         <source>Your password must include at minimum:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password_msg2" datatype="html">
         <source>8 alpha or numerical characters</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password_msg3" datatype="html">
         <source>1 uppercase character</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password_msg4" datatype="html">
         <source>1 lowercase character</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.password_confirm" datatype="html">
         <source>Password confirmation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.phone_number" datatype="html">
         <source>Phone number</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="label.coupon_code" datatype="html">
         <source>Coupon code</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">86</context>
+          <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="788ff83e282451f9339c28917d45fb5670309194" datatype="html">
         <source>Apply a coupon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">84</context>
         </context-group>
         <note priority="1" from="description">##label.apply_coupon</note>
+      </trans-unit>
+      <trans-unit id="header.confirm_email" datatype="html">
+        <source>Confirm your Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.confirm_email.msg1" datatype="html">
+        <source>A confirm email was sent to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.confirm_email.msg2" datatype="html">
+        <source>Please check your inbox for the confirm email. Click the link in the email to confirm your email address.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/register-detail/register-detail.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.per_piece" datatype="html">
+        <source>/piece</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list-item/product-list-item.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.add_product" datatype="html">
+        <source>Add Product</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.product_name" datatype="html">
+        <source>Product name<x id="START_TAG_APP-REQUIRED-INPUT" ctype="x-app-required-input" equiv-text="&lt;app-required-input&gt;"/><x id="CLOSE_TAG_APP-REQUIRED-INPUT" ctype="x-app-required-input" equiv-text="&lt;/app-required-input&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.fob_ref_price" datatype="html">
+        <source>Price (FOB Reference Price)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.min" datatype="html">
+        <source>Min</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.max" datatype="html">
+        <source>Max</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.min_order_qty" datatype="html">
+        <source>Minimum Order Quantity (unit)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.lead_time" datatype="html">
+        <source>Lead-Time</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.country_of_origin" datatype="html">
+        <source>Country of Origin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.colors" datatype="html">
+        <source>Colors</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input.enter_available_colors" datatype="html">
+        <source>Enter available colors</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.sizes" datatype="html">
+        <source>Size</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input.enter_available_sizes" datatype="html">
+        <source>Enter available sizes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.material" datatype="html">
+        <source>Material</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input.enter_available_material" datatype="html">
+        <source>Enter available material</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.selling_points" datatype="html">
+        <source>Selling Points</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input.enter_selling_points" datatype="html">
+        <source>Enter selling points</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.description" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="97f38269ae8c49d8ac6917498921d052462e2db6" datatype="html">
+        <source>You can provide product details here e.g. Features, instructions…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <note priority="1" from="description">input.description</note>
+      </trans-unit>
+      <trans-unit id="label.images" datatype="html">
+        <source>Images (JPG and PNG only)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.button.add_images" datatype="html">
+        <source>Add images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.categories" datatype="html">
+        <source>Categories</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="input.select_categories" datatype="html">
+        <source>Select categories</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.supporting_documents" datatype="html">
+        <source>Supporting Documents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.button.add_files" datatype="html">
+        <source>Add files</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.additional_information" datatype="html">
+        <source>Additional Information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.section.inner_carton" datatype="html">
+        <source>Inner Carton</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.section.master_carton" datatype="html">
+        <source>Master Carton</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.length" datatype="html">
+        <source>Length</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-carton-info/product-carton-info.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.width" datatype="html">
+        <source>Width</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-carton-info/product-carton-info.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="label.height" datatype="html">
+        <source>Height</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-carton-info/product-carton-info.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

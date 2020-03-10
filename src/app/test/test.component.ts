@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import {MenuItem} from 'primeng/api';
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -24,28 +25,18 @@ export class TestComponent implements OnInit {
          leadTime: ['', ''],
          leadTimeUnit: ['', ''],
          values : ['', ''],
-         colors : this.formBuilder.array([])
+         files : ['','']
          });
        }
 
       ngOnInit(
       ): void {
-
       }
 
-  get colors() {
-    return this.editorForm.get('colors') as FormArray;
-  }
+    uploadedFiles: any[] = [];
 
-   onSubmit(customerData) {
-
-       console.log('Editor form submitted', customerData);
-   }
-
-   addColor(){
-       this.colors.push(this.formBuilder.group({
-                                rgb: '',
-                                colorName: '',
-                              }));
-   }
+    myUploader(event) {
+        //event.files == files to upload
+        console.log(event.files);
+    }
 }

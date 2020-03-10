@@ -1,0 +1,65 @@
+<div [formGroup]="form">
+  <div formGroupName="{{infoName}}" class="p-grid">
+    <div class="p-col-12">
+      <h3>{{labelText}}</h3>
+    </div>
+    <div class="p-col-3">
+      <span class="ui-float-label">
+          <input pInputText id="length" type="number" formControlName="length"
+                 autocomplete="off" (change)="updateVolume($event)">
+          <label for="length" i18n="@@label.length">Length</label>
+      </span>
+    </div>
+    <div class="p-col-3">
+      <span class="ui-float-label">
+          <input pInputText id="width" type="number" formControlName="width"
+                 autocomplete="off" (change)="updateVolume($event)">
+          <label for="length" i18n="@@label.width">Width</label>
+      </span>
+    </div>
+    <div class="p-col-3">
+      <span class="ui-float-label">
+          <input pInputText id="height" type="number" formControlName="height"
+                 autocomplete="off" (change)="updateVolume($event)">
+          <label for="length" i18n="@@label.height">Height</label>
+      </span>
+    </div>
+    <div class="p-col-3">
+      <p-dropdown [options]="dimensionUnitOptions" formControlName="dimensionUnit"></p-dropdown>
+    </div>
+    <div class="p-col-3">
+      <label for="volume" i18n="label.volume">Volume : </label>
+    </div>
+    <div class="p-col-3">
+      <input pInputText id="volume" type="number" formControlName="volume"
+             autocomplete="off">
+    </div>
+    <div class="p-col-6">
+    </div>
+    <div class="p-col-3 ">
+      <span class="ui-float-label">
+          <input pInputText id="weight" type="number" formControlName="weight"
+                 autocomplete="off" >
+          <label for="weight" i18n="@@label.weight">Weight</label>
+      </span>
+    </div>
+    <div class="p-col-3">
+      <p-dropdown [options]="weightUnitOptions" formControlName="weightUnit"></p-dropdown>
+    </div>
+    <div class="p-col-6">
+    </div>
+
+    <div class="p-col-3 ">
+      <span class="ui-float-label">
+          <input pInputText id="quantity" type="number" formControlName="quantity"
+                 autocomplete="off" >
+          <label for="quantity" i18n="@@label.quantity">Quantity</label>
+      </span>
+    </div>
+    <div class="p-col-3">
+      <p-dropdown [options]="qtyUnitOptions" formControlName="quantityUnit"></p-dropdown>
+    </div>
+    <div class="p-col-6">
+    </div>
+  </div>
+</div>

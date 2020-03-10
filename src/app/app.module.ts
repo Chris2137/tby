@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SsoComponent } from './sso/sso.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
@@ -25,6 +26,9 @@ import {PanelModule} from 'primeng/panel';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ChipsModule} from 'primeng/chips';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {FileUploadModule} from 'primeng/fileupload';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DialogModule} from 'primeng/dialog';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
@@ -35,6 +39,7 @@ import { ProductItemInfoComponent } from './product-item-info/product-item-info.
 import { ProductItemActionBarComponent } from './product-item-action-bar/product-item-action-bar.component';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
 import { RequiredInputComponent } from './required-input/required-input.component';
+import { ProductCartonInfoComponent } from './product-carton-info/product-carton-info.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,8 @@ import { RequiredInputComponent } from './required-input/required-input.componen
     ProductItemInfoComponent,
     ProductItemActionBarComponent,
     ProductEditorComponent,
-    RequiredInputComponent
+    RequiredInputComponent,
+    ProductCartonInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,7 @@ import { RequiredInputComponent } from './required-input/required-input.componen
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     ButtonModule,
     CardModule,
@@ -66,15 +73,18 @@ import { RequiredInputComponent } from './required-input/required-input.componen
     ChipsModule,
     ColorPickerModule,
     DataViewModule,
+    DialogModule,
     DropdownModule,
     InputMaskModule,
     InputTextareaModule,
     InputTextModule,
+    MultiSelectModule,
     PasswordModule,
     PanelModule,
     FieldsetModule,
     TabMenuModule,
 
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import {SelectItem} from 'primeng/api';
@@ -15,16 +15,19 @@ export class ProductEditorComponent implements OnInit {
   product : Product ;
   isNew : boolean = true;
   editorForm;
+  isLoading : boolean = false;
 
   currencyOptions : SelectItem[];
   qtyUnitOptions :  SelectItem[];
   timeUnitOptions :  SelectItem[];
   countriesOptions : SelectItem[];
+  categoriesOptions : SelectItem[];
 
   constructor(
     private productService : ProductService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
    ) {
    this.editorForm = this.formBuilder.group({
      name: ['', Validators.required],
@@ -36,12 +39,15 @@ export class ProductEditorComponent implements OnInit {
      leadTime: ['', ''],
      leadTimeUnit: ['', ''],
      countryOfOrigin: ['',''],
-     colors : this.formBuilder.array([]),
+     colors : ['',''],
      size: ['', ''],
      material: ['', ''],
      sellingPoints : ['', ''],
      description : ['', ''],
-     photos : ['', '']
+     photos : ['', ''],
+     categories : ['', ''],
+     innerCarton : this.createCartonInfoGroup(),
+     masterCarton : this.createCartonInfoGroup(),
       });
      }
 
@@ -61,6 +67,20 @@ export class ProductEditorComponent implements OnInit {
 
   }
 
+  createCartonInfoGroup(): FormGroup {
+    return this.formBuilder.group({
+        dimensionUnit : ['in', ''],
+          length : ['', ''],
+          width :['', ''],
+          height : ['', ''],
+          volume : ['', ''],
+          weight : ['', ''],
+          weightUnit : ['', ''],
+          quantity : ['', ''],
+          quantityUnit : ['', '']
+    });
+  }
+
   private initDropdownOptions() : void{
      this.currencyOptions = [
                          {label: 'USD', value: 'USD'},
@@ -78,29 +98,28 @@ export class ProductEditorComponent implements OnInit {
                                {label: 'weeks', value: 'weeks'},
                                {label: 'months', value: 'months'}];
 
-      this.productService.getCountryList().subscribe(countries =>{
-          this.countriesOptions = [];
-          for(var country of countries){
-            console.log(country);
-            this.countriesOptions.push({label: country, value : country});
-          }
-        }
-      );
+     this.productService.getCountryList().subscribe(countries =>{
+                  this.countriesOptions = [];
+                  for(var country of countries){
+                    this.countriesOptions.push({label: country, value : country});
+                  }
+                });
+
+     this.productService.getCategoryList().subscribe(categories =>{
+               this.categoriesOptions = [];
+               for(var category of categories){
+                 this.categoriesOptions.push({label: category, value : category});
+               }
+             });
   }
 
-  get colors() {
-    return this.editorForm.get('colors') as FormArray;
+  uploader(event) {
+      console.log(event.files);
   }
 
-   addColor(){
-       this.colors.push(this.formBuilder.group({
-                                rgb: '',
-                                colorName: '',
-                              }));
-   }
+  onSubmit(formData){
+      this.isLoading = true;
+      this.productService.createProduct(formData).subscribe(id=> {this.isLoading = false; this.router.navigate([`/product/${id}`])});
 
-   removeColor(i:number) {
-     this.colors.removeAt(i);
-   }
-
+  }
 }

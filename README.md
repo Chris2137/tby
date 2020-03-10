@@ -17,6 +17,13 @@ To make use of some components, we also need to run
 npm install @angular/cdk --save
 ```
 
+Below installation is just for creating local upload service,
+```
+npm install express multer body-parser dotenv --save
+npm install nodemon --save-dev
+
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
