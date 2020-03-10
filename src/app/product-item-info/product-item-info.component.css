@@ -1,0 +1,12 @@
+.sub-title {
+  font-size : 12px;
+  color : #a7a9ac;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div {
+  font-weight:bold;
+}
+

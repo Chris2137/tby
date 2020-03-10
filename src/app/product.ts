@@ -7,4 +7,5 @@ export class Product {
   visibility : string;
   picUrl : string;
   price : number;
+  currency : string;
 }

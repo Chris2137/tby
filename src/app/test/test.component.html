@@ -1,3 +1,7 @@
-  <div>{{val1}}</div>
-<div [hidden]="val1">123456</div>
-  <div [hidden]="!val1">123456</div>
+<h2>text-overflow: ellipsis:</h2>
+
+<form [formGroup]="editorForm" (submit)="onSubmit(editorForm.value)">
+  <p-chips formControlName="values"></p-chips>
+  <button type="submit">Submit</button>
+
+</form>

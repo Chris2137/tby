@@ -1,0 +1,9 @@
+<p-card class="item-card" routerLink="/product/{{product.id}}">
+  <p-header>
+    <img src="Card" [src]="product.picUrl">
+  </p-header>
+  <app-product-item-info [product]="product"></app-product-item-info>
+  <p-footer>
+    <app-product-item-action-bar></app-product-item-action-bar>
+  </p-footer>
+</p-card>

@@ -22,10 +22,19 @@ import {DataViewModule} from 'primeng/dataview';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {MenuItem} from 'primeng/api';
 import {PanelModule} from 'primeng/panel';
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {ChipsModule} from 'primeng/chips';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
 import { ContainsCharacterInDirective } from './contains-character-in.directive';
+import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { ProductGridItemComponent } from './product-grid-item/product-grid-item.component';
+import { ProductItemInfoComponent } from './product-item-info/product-item-info.component';
+import { ProductItemActionBarComponent } from './product-item-action-bar/product-item-action-bar.component';
+import { ProductEditorComponent } from './product-editor/product-editor.component';
+import { RequiredInputComponent } from './required-input/required-input.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +45,13 @@ import { ContainsCharacterInDirective } from './contains-character-in.directive'
     RegisterComponent,
     TestComponent,
     RegisterDetailComponent,
-    ContainsCharacterInDirective
+    ContainsCharacterInDirective,
+    ProductListItemComponent,
+    ProductGridItemComponent,
+    ProductItemInfoComponent,
+    ProductItemActionBarComponent,
+    ProductEditorComponent,
+    RequiredInputComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +63,12 @@ import { ContainsCharacterInDirective } from './contains-character-in.directive'
     ButtonModule,
     CardModule,
     CheckboxModule,
+    ChipsModule,
+    ColorPickerModule,
     DataViewModule,
     DropdownModule,
     InputMaskModule,
+    InputTextareaModule,
     InputTextModule,
     PasswordModule,
     PanelModule,

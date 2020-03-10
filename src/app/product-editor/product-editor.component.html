@@ -1,0 +1,113 @@
+<form [formGroup]="editorForm">
+  <div class="p-grid  ui-fluid">
+    <div class="p-col-12">
+      <label for="name" i18n="@@label.product_name">Product name<app-required-input></app-required-input></label>
+    </div>
+    <div class="p-col-12">
+      <input pInputText id="name" type="text" formControlName="name"
+             autocomplete="off">
+    </div>
+    <div class="p-col-12">
+      <label for="minPrice" i18n="@@label.fob_ref_price">Price (FOB Reference Price)</label>
+    </div>
+    <div class="p-col-3">
+          <span class="ui-float-label">
+            <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0">
+            <label for="minPrice" i18n="@@label.min">Min</label>
+          </span>
+    </div>
+    <div class="p-col-1">
+      <span>to</span>
+    </div>
+    <div class="p-col-3">
+          <span class="ui-float-label">
+            <input pInputText id="maxPrice" type="number" formControlName="maxPrice" autocomplete="off" min="0">
+            <label for="minPrice" i18n="@@label.max">Max</label>
+          </span>
+    </div>
+    <div class="p-col-5">
+      <p-dropdown [options]="currencyOptions" formControlName="currency"></p-dropdown>
+    </div>
+
+    <div class="p-col-12">
+      <label for="minQty" i18n="@@label.min_order_qty">Minimum Order Quantity (unit)</label>
+    </div>
+    <div class="p-col-6">
+      <input pInputText id="minQty" type="number" formControlName="minQty" autocomplete="off" min="0">
+    </div>
+    <div class="p-col-6">
+      <p-dropdown [options]="qtyUnitOptions" formControlName="minQtyUnit"></p-dropdown>
+    </div>
+
+    <div class="p-col-12">
+      <label for="leadTime" i18n="@@label.lead_time">Lead-Time</label>
+    </div>
+    <div class="p-col-6">
+      <input pInputText id="leadTime" type="number" formControlName="leadTime" autocomplete="off" min="0">
+    </div>
+    <div class="p-col-6">
+      <p-dropdown [options]="timeUnitOptions" formControlName="leadTimeUnit"></p-dropdown>
+    </div>
+
+    <div class="p-col-12">
+      <label for="leadTime" i18n="@@label.country_of_origin">Country of Origin</label>
+    </div>
+    <div class="p-col-12">
+      <p-dropdown [options]="countriesOptions" filter="true" formControlName="countryOfOrigin" placeholder="-- select an option --">
+      </p-dropdown>
+    </div>
+
+    <div class="p-col-12">
+      <label i18n="@@label.colors">Colors</label>
+    </div>
+
+    <div class="p-col-12" formArrayName="colors" *ngFor="let color of colors.controls; let i=index">
+        <div class="p-grid color"  [formGroupName]="i">
+          <div class="p-col-2">
+            <p-colorPicker formControlName="rgb"></p-colorPicker>
+          </div>
+          <div class="p-col-9">
+            <input pInputText type="text" formControlName="colorName" i18n-placeholder="@@input.enter_color_name" placeholder="Enter color Name">
+          </div>
+          <div class="p-col-1">
+            <i class="pi pi-times" style="font-size: 2em" (click)="removeColor(i)"></i>
+          </div>
+        </div>
+    </div>
+    <div class="p-col-12">
+      <i class="pi pi-plus-circle" style="font-size: 3em" (click)="addColor()"></i>
+    </div>
+
+    <div class="p-col-12">
+      <label for="size" i18n="@@label.sizes">Size</label>
+    </div>
+    <div class="p-col-12">
+      <input pInputText id="size" type="text" formControlName="size"
+             autocomplete="off" i18n-placeholder="@@input.enter_available_sizes" placeholder="Enter available sizes">
+    </div>
+
+    <div class="p-col-12">
+      <label for="material" i18n="@@label.material">Material</label>
+    </div>
+    <div class="p-col-12">
+      <input pInputText id="material" type="text" formControlName="material"
+             autocomplete="off" i18n-placeholder="@@input.enter_available_material" placeholder="Enter available material">
+    </div>
+
+    <div class="p-col-12">
+      <label for="sellingPoints" i18n="@@label.selling_points">Selling Points</label>
+    </div>
+    <div class="p-col-12">
+      <p-chips inputId="sellingPoints" formControlName="sellingPoints" i18n-placeholder="@@input.enter_selling_points" placeholder="Enter selling points"></p-chips>
+    </div>
+
+    <div class="p-col-12">
+      <label for="description" i18n="@@label.description">Description</label>
+    </div>
+    <div class="p-col-12">
+      <textarea id="description" pInputTextarea autoResize="autoResize" formControlName="description"
+                i18n-placeholder="input.description" placeholder="You can provide product details here e.g. Features, instructions…"></textarea>
+    </div>
+
+  </div>
+</form>

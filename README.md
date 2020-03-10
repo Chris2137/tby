@@ -11,6 +11,12 @@ npm install primeng --save
 npm install primeicons --save
 ```
 
+To make use of some components, we also need to run 
+
+```
+npm install @angular/cdk --save
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
