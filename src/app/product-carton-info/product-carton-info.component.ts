@@ -14,6 +14,7 @@ export class ProductCartonInfoComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() infoName : string;
   @Input() labelText : string;
+  @Input() carton : FormGroup;
 
   dimensionUnitOptions : SelectItem[];
   weightUnitOptions : SelectItem[];
