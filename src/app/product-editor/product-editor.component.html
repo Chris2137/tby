@@ -15,7 +15,7 @@
     </div>
     <div class="p-col-2">
           <span class="ui-float-label">
-            <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0">
+            <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0" #minInput>
             <label for="minPrice" i18n="@@label.min">Min</label>
           </span>
     </div>
@@ -29,7 +29,7 @@
           </span>
     </div>
     <div class="p-col-3">
-      <p-dropdown [options]="currencyOptions" formControlName="currency"></p-dropdown>
+      <p-dropdown [options]="currencyOptions" formControlName="currency" #ddCurrency></p-dropdown>
     </div>
 
     <div class="p-col-12">
@@ -61,11 +61,11 @@
     </div>
 
     <div class="p-col-12">
-      <label for="colors" i18n="@@label.colors">Colors</label>
+      <label for="color" i18n="@@label.colors">Colors</label>
     </div>
 
     <div class="p-col-12">
-      <p-chips inputId="colors" formControlName="colors" i18n-placeholder="@@input.enter_available_colors" placeholder="Enter available colors"></p-chips>
+      <p-chips inputId="color" formControlName="color" i18n-placeholder="@@input.enter_available_colors" placeholder="Enter available colors"></p-chips>
     </div>
 
     <div class="p-col-12">
@@ -83,10 +83,10 @@
     </div>
 
     <div class="p-col-12">
-      <label for="sellingPoints" i18n="@@label.selling_points">Selling Points</label>
+      <label for="sellingPoint" i18n="@@label.selling_points">Selling Points</label>
     </div>
     <div class="p-col-12">
-      <p-chips inputId="sellingPoints" formControlName="sellingPoints" i18n-placeholder="@@input.enter_selling_points" placeholder="Enter selling points"></p-chips>
+      <p-chips inputId="sellingPoint" formControlName="sellingPoint" i18n-placeholder="@@input.enter_selling_points" placeholder="Enter selling points"></p-chips>
     </div>
 
     <div class="p-col-12">
@@ -134,12 +134,13 @@
     </div>
 
     <div class="p-col-12">
-      <app-product-carton-info [form]="editorForm" [infoName]="'innerCarton'" 
+      <app-product-carton-info formGroupName="innerCarton"
                                i18n-labelText="@@label.section.inner_carton" labelText="Inner Carton"></app-product-carton-info>
     </div>
 
     <div class="p-col-12">
-      <app-product-carton-info [form]="editorForm" [infoName]="'masterCarton'" i18n-labelText="@@label.section.master_carton" labelText="Master Carton"></app-product-carton-info>
+      <app-product-carton-info formGroupName="masterCarton"
+                               i18n-labelText="@@label.section.master_carton" labelText="Master Carton"></app-product-carton-info>
     </div>
 
     <div class="p-col-12">

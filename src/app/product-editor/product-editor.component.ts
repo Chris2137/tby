@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import {SelectItem} from 'primeng/api';
+import {InputText} from 'primeng/inputtext';
+import {Dropdown} from 'primeng/dropdown';
 
 @Component({
   selector: 'app-product-editor',
@@ -23,6 +25,10 @@ export class ProductEditorComponent implements OnInit {
   countriesOptions : SelectItem[];
   categoriesOptions : SelectItem[];
 
+  @ViewChild('ddCurrency')
+    ddCurrency :  Dropdown;
+
+
   constructor(
     private productService : ProductService,
     private formBuilder: FormBuilder,
@@ -39,10 +45,10 @@ export class ProductEditorComponent implements OnInit {
      leadTime: ['', ''],
      leadTimeUnit: ['', ''],
      countryOfOrigin: ['',''],
-     colors : ['',''],
+     color : ['',''],
      size: ['', ''],
      material: ['', ''],
-     sellingPoints : ['', ''],
+     sellingPoint : ['', ''],
      description : ['', ''],
      photos : ['', ''],
      categories : ['', ''],
@@ -56,7 +62,30 @@ export class ProductEditorComponent implements OnInit {
     var productId = this.route.snapshot.paramMap.get('productId');
 
     if(productId != null){
-      this.productService.getProduct(productId).subscribe( product => this.product = product);
+      this.productService.getProduct(productId).subscribe( product =>
+      {
+        this.product = product;
+
+        this.editorForm.patchValue(
+         {
+           name: this.product.name,
+           minPrice: this.product.minPrice,
+           maxPrice: this.product.maxPrice,
+           currency: this.product.currency,
+           minQty: this.product.minQty,
+           minQtyUnit: this.product.minQtyUnit,
+           leadTime: this.product.leadTime,
+           leadTimeUnit: this.product.leadTimeUnit,
+           countryOfOrigin: this.product.countryOfOrigin,
+           description : this.product.description,
+           color : this.product.color,
+           size: this.product.size,
+           material: this.product.material,
+           sellingPoint : this.product.sellingPoint,
+           innerCarton : this.product.innerCarton
+         }
+        );
+      });
       this.isNew = false;
     }
     else{
@@ -65,6 +94,12 @@ export class ProductEditorComponent implements OnInit {
 
     this.initDropdownOptions();
 
+  }
+
+  ngAfterViewInit(): void {
+  console.log(this.ddCurrency);
+    console.log(this.ddCurrency.updateFilledState  );
+    this.ddCurrency.updateFilledState();
   }
 
   createCartonInfoGroup(): FormGroup {

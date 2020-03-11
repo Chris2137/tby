@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import {CartonInfo} from '../carton-info';
 import { ProductService } from '../product.service';
 import {SelectItem} from 'primeng/api';
+import { ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'app-product-carton-info',
@@ -11,19 +12,16 @@ import {SelectItem} from 'primeng/api';
 })
 export class ProductCartonInfoComponent implements OnInit {
 
-  @Input() form: FormGroup;
-  @Input() infoName : string;
   @Input() labelText : string;
-  @Input() carton : FormGroup;
 
   dimensionUnitOptions : SelectItem[];
   weightUnitOptions : SelectItem[];
   qtyUnitOptions : SelectItem[];
 
   constructor(
-  private productService : ProductService
+    public controlContainer: ControlContainer,
+    private productService : ProductService
   ) {
-
   }
 
   ngOnInit(): void {
@@ -50,11 +48,11 @@ export class ProductCartonInfoComponent implements OnInit {
   }
 
   updateVolume(event){
-      var height =  this.form.get(this.infoName).get('height').value;
-      var width =  this.form.get(this.infoName).get('width').value;
-      var length =  this.form.get(this.infoName).get('length').value;
+      var height =  this.controlContainer.control.get('height').value;
+      var width =  this.controlContainer.control.get('width').value;
+      var length =  this.controlContainer.control.get('length').value;
       if(this.hasValue(height) && this.hasValue(width) && this.hasValue(length)){
-        this.form.get(this.infoName).get('volume').setValue(height * width * length);
+        this.controlContainer.control.get('volume').setValue(height * width * length);
       }
   }
 

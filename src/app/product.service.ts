@@ -30,7 +30,7 @@ export class ProductService {
 
   getProduct(id : string) : Observable<Product>{
     console.log(`load product with id ${id}`);
-    return of(PRODUCTS[0]);
+    return of(PRODUCTS.find(product => product.id === id));
   }
 
   createProduct(product) : Observable<string>{
