@@ -32,7 +32,6 @@ import {DialogModule} from 'primeng/dialog';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
-import { ContainsCharacterInDirective } from './contains-character-in.directive';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { ProductGridItemComponent } from './product-grid-item/product-grid-item.component';
 import { ProductItemInfoComponent } from './product-item-info/product-item-info.component';
@@ -54,7 +53,6 @@ import { NetworkComponent } from './network/network.component';
     RegisterComponent,
     TestComponent,
     RegisterDetailComponent,
-    ContainsCharacterInDirective,
     ProductListItemComponent,
     ProductGridItemComponent,
     ProductItemInfoComponent,
