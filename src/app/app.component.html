@@ -1,3 +1,29 @@
-<div class="container">
-  <router-outlet></router-outlet>
+<div id="app-container">
+
+  <div id="app-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="p-grid ui-fluid navbar p-justify-even">
+    <div class="p-col-2">
+      <a href="/#" routerLink="/home">
+        <i class="pi pi-home"></i>Home
+      </a>
+    </div>
+    <div class="p-col-2">
+      <a href="#" routerLink="/market">
+        <i class="pi pi-eye"></i> Market</a>
+    </div>
+    <div class="p-col-2">
+      <a href="#">
+        <i class="pi pi-camera"></i> Camera</a>
+    </div>
+    <div class="p-col-2">
+      <a href="/#" routerLink="/network"><i class="pi pi-share-alt"></i>
+        Network</a>
+    </div>
+    <div class="p-col-2">
+      <a href="/#" routerLink="/workspace"><i class="pi pi-briefcase"></i>Workspace</a>
+    </div>
+  </div>
 </div>

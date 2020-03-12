@@ -41,6 +41,9 @@ import { ProductEditorComponent } from './product-editor/product-editor.componen
 import { RequiredInputComponent } from './required-input/required-input.component';
 import { ProductCartonInfoComponent } from './product-carton-info/product-carton-info.component';
 import { ProductUploadedFileComponent } from './product-uploaded-file/product-uploaded-file.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MarketComponent } from './market/market.component';
+import { NetworkComponent } from './network/network.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { ProductUploadedFileComponent } from './product-uploaded-file/product-up
     ProductEditorComponent,
     RequiredInputComponent,
     ProductCartonInfoComponent,
-    ProductUploadedFileComponent
+    ProductUploadedFileComponent,
+    DashboardComponent,
+    MarketComponent,
+    NetworkComponent
   ],
   imports: [
     BrowserModule,

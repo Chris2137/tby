@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #ffffff;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  border-top : 1px solid #ddd;
+  width:100%;
+}
+
+i {
+font-size: 3em
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+/* Add a green background color to the active link */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}

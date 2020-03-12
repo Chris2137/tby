@@ -6,6 +6,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
+import { MarketComponent} from './market/market.component';
+import { NetworkComponent} from './network/network.component';
 
 import { TestComponent } from './test/test.component';
 const routes: Routes = [
@@ -17,7 +20,10 @@ const routes: Routes = [
   { path: 'product', component: ProductEditorComponent },
   { path: 'product/:productId', component: ProductEditorComponent },
   { path: 'test',  component: TestComponent },
-
+  { path: 'home', component: DashboardComponent },
+  { path: 'workspace', component: ProductListComponent },
+  { path: 'market', component: MarketComponent },
+  { path: 'network', component: NetworkComponent },
   { path: '',  component: TestComponent },
 
 ];
