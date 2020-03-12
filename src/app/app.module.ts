@@ -40,6 +40,7 @@ import { ProductItemActionBarComponent } from './product-item-action-bar/product
 import { ProductEditorComponent } from './product-editor/product-editor.component';
 import { RequiredInputComponent } from './required-input/required-input.component';
 import { ProductCartonInfoComponent } from './product-carton-info/product-carton-info.component';
+import { ProductUploadedFileComponent } from './product-uploaded-file/product-uploaded-file.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProductCartonInfoComponent } from './product-carton-info/product-carton
     ProductItemActionBarComponent,
     ProductEditorComponent,
     RequiredInputComponent,
-    ProductCartonInfoComponent
+    ProductCartonInfoComponent,
+    ProductUploadedFileComponent
   ],
   imports: [
     BrowserModule,

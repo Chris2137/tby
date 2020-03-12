@@ -35,27 +35,28 @@ export class ProductEditorComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
    ) {
-   this.editorForm = this.formBuilder.group({
-     name: ['', Validators.required],
-     minPrice: ['',''],
-     maxPrice: ['',''],
-     currency: ['',''],
-     minQty: ['', ''],
-     minQtyUnit: ['', ''],
-     leadTime: ['', ''],
-     leadTimeUnit: ['', ''],
-     countryOfOrigin: ['',''],
-     color : ['',''],
-     size: ['', ''],
-     material: ['', ''],
-     sellingPoint : ['', ''],
-     description : ['', ''],
-     photos : ['', ''],
-     categories : ['', ''],
-     innerCarton : this.createCartonInfoGroup(),
-     masterCarton : this.createCartonInfoGroup(),
-      });
-     }
+  this.editorForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    minPrice: ['',''],
+    maxPrice: ['',''],
+    currency: ['',''],
+    minQty: ['', ''],
+    minQtyUnit: ['', ''],
+    leadTime: ['', ''],
+    leadTimeUnit: ['', ''],
+    countryOfOrigin: ['',''],
+    description : ['', ''],
+    color : ['',''],
+    size: ['', ''],
+    material: ['', ''],
+    sellingPoint : ['', ''],
+    category : ['', ''],
+    photo : ['', ''],
+    supportingDoc : ['', ''],
+    innerCarton : this.createCartonInfoGroup(),
+    masterCarton : this.createCartonInfoGroup(),
+    });
+   }
 
   ngOnInit(): void {
 
@@ -82,7 +83,12 @@ export class ProductEditorComponent implements OnInit {
            size: this.product.size,
            material: this.product.material,
            sellingPoint : this.product.sellingPoint,
-           innerCarton : this.product.innerCarton
+           category : this.product.category,
+           innerCarton : this.product.innerCarton,
+           masterCarton : this.product.masterCarton,
+           photo : this.product.photo,
+           supportingDoc : this.product.supportingDoc
+
          }
         );
       });
@@ -148,8 +154,11 @@ export class ProductEditorComponent implements OnInit {
              });
   }
 
-  uploader(event) {
+  uploader(uploadFor, event) {
       console.log(event.files);
+      /* assume a new UploadedFile will be returned upon finish uploading via service*/
+      this.productService.uploadFile(event.files).subscribe( files=> this.editorForm.get(uploadFor).value = this.editorForm.get(uploadFor).value.concat(files));
+      console.log(this.editorForm.get(uploadFor).value);
   }
 
   onSubmit(formData){
@@ -157,4 +166,12 @@ export class ProductEditorComponent implements OnInit {
       this.productService.createProduct(formData).subscribe(id=> {this.isLoading = false; this.router.navigate([`/product/${id}`])});
 
   }
+
+  get photo(){
+    return this.editorForm.get('photo').value;
+  }
+
+  get supportingDoc(){
+      return this.editorForm.get('supportingDoc').value;
+    }
 }

@@ -1,0 +1,10 @@
+<div  *ngFor="let file of files">
+  <div>
+    <div *ngIf="file.thumbnail">
+      <img [src]="file.thumbnail" width="50">
+    </div>
+    <div>{{file.name}}</div>
+    <div>{{file.size}}<span i18n="label.file.byte">byte</span></div>
+    <div><i class="pi pi-times" (click)="removeItem(file.id)"></i></div>
+  </div>
+</div>

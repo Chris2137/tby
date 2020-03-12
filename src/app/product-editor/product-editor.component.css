@@ -5,3 +5,8 @@ span {
 .color{
   width:100%
 }
+
+i{
+  vertical-align:middle;
+  font-size: 2em;
+}

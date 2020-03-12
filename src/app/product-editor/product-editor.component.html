@@ -102,7 +102,14 @@
     </div>
     <div class="p-col-12">
       <p-fileUpload chooseLabel="Add images" i18n-chooseLabel="@@label.button.add_images" accept=".jpg,.png"
-                    customUpload="true" (uploadHandler)="uploader($event)" [auto]="true" multiple="multiple"></p-fileUpload>
+                    customUpload="true" (uploadHandler)="uploader('photo',$event)" [auto]="true" multiple="multiple">
+        <ng-template let-file pTemplate="file">
+          <!--Intentionally hide this section, show in the content session instead. -->
+        </ng-template>
+        <ng-template pTemplate="content">
+          <app-product-uploaded-file [files]="photo" *ngIf="photo.length"></app-product-uploaded-file>
+        </ng-template>
+      </p-fileUpload>
     </div>
 
     <div class="p-col-12">
@@ -110,10 +117,10 @@
     </div>
 
     <div class="p-col-12">
-      <label for="categories" i18n="@@label.categories">Categories</label>
+      <label for="category" i18n="@@label.categories">Categories</label>
     </div>
     <div class="p-col-12">
-      <p-multiSelect [options]="categoriesOptions" formControlName="categories" maxSelectedLabels="8"
+      <p-multiSelect [options]="categoriesOptions" formControlName="category" maxSelectedLabels="8"
                      defaultLabel="Select categories" i18n-defaultLabel="@@input.select_categories"></p-multiSelect>
     </div>
 
@@ -122,7 +129,14 @@
     </div>
     <div class="p-col-12">
       <p-fileUpload chooseLabel="Add files" i18n-chooseLabel="@@label.button.add_files"
-                    customUpload="true" (uploadHandler)="uploader($event)" [auto]="true" multiple="multiple"></p-fileUpload>
+                    customUpload="true" (uploadHandler)="uploader('supportingDoc', $event)" [auto]="true" multiple="multiple">
+        <ng-template let-file pTemplate="file">
+        </ng-template>
+        <ng-template pTemplate="content">
+          <app-product-uploaded-file [files]="supportingDoc" *ngIf="supportingDoc.length"></app-product-uploaded-file>
+        </ng-template>
+
+      </p-fileUpload>
     </div>
 
     <div class="p-col-12">

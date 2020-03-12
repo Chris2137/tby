@@ -1,3 +1,5 @@
+import {UploadedFile} from './uploaded-file';
+
 export interface Product {
 
   id : string;
@@ -19,16 +21,32 @@ export interface Product {
   color : string[];
   size : string[];
   material : string[];
-  sellingPoint : string[]
+  sellingPoint : string[];
+  category : string[];
   innerCarton : {
     dimensionUnit : string;
-              length : number,
-              width :number,
-              height : number,
-              volume : number,
-              weight : number,
-              weightUnit : string,
-              quantity : number,
-              quantityUnit : string
-  }
+    length : number;
+    width :number;
+    height : number;
+    volume : number;
+    weight : number;
+    weightUnit : string;
+    quantity : number;
+    quantityUnit : string;
+  };
+  masterCarton : {
+    dimensionUnit : string;
+    length : number;
+    width :number;
+    height : number;
+    volume : number;
+    weight : number;
+    weightUnit : string;
+    quantity : number;
+    quantityUnit : string;
+  };
+  photo : UploadedFile[];
+  supportingDoc : UploadedFile[];
 }
+
+
