@@ -7,6 +7,17 @@
   width:100%;
 }
 
+.top-navbar {
+  background-color: #ffffff;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ddd;
+  width:100%;
+  z-index:2;
+}
+
+
 i {
 font-size: 3em
 }
@@ -25,4 +36,9 @@ font-size: 3em
 .navbar a.active {
   background-color: #4CAF50;
   color: white;
+}
+
+#app-content{
+  padding-top:40px;
+  padding-bottom:60px;
 }

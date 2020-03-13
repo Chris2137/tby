@@ -9,6 +9,8 @@ import { ProductEditorComponent } from './product-editor/product-editor.componen
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { MarketComponent} from './market/market.component';
 import { NetworkComponent} from './network/network.component';
+import { RequestListComponent} from './request-list/request-list.component';
+import { MyCreationComponent} from './my-creation/my-creation.component';
 
 import { TestComponent } from './test/test.component';
 const routes: Routes = [
@@ -16,14 +18,19 @@ const routes: Routes = [
   { path: 'register',  component: RegisterComponent },
   { path: 'register-detail/:businessType',  component: RegisterDetailComponent },
   { path: 'sso',  component: SsoComponent },
-  { path: 'product-list',  component: ProductListComponent },
-  { path: 'product', component: ProductEditorComponent },
-  { path: 'product/:productId', component: ProductEditorComponent },
+  { path: 'workspace/product-list',  component: ProductListComponent },
+  { path: 'workspace/product', component: ProductEditorComponent },
+  { path: 'workspace/product/:productId', component: ProductEditorComponent },
+  { path: 'workspace/requests', component: RequestListComponent },
+  { path: 'workspace/mycreation', component: MyCreationComponent },
   { path: 'test',  component: TestComponent },
   { path: 'home', component: DashboardComponent },
   { path: 'workspace', component: ProductListComponent },
   { path: 'market', component: MarketComponent },
   { path: 'network', component: NetworkComponent },
+  { path: 'network/connections', component: NetworkComponent },
+  { path: 'network/directory', component: NetworkComponent },
+  { path: 'network/invitations', component: NetworkComponent },
   { path: '',  component: TestComponent },
 
 ];

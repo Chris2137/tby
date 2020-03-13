@@ -25,10 +25,6 @@ export class ProductEditorComponent implements OnInit {
   countriesOptions : SelectItem[];
   categoriesOptions : SelectItem[];
 
-  @ViewChild('ddCurrency')
-    ddCurrency :  Dropdown;
-
-
   constructor(
     private productService : ProductService,
     private formBuilder: FormBuilder,
@@ -103,9 +99,6 @@ export class ProductEditorComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-  console.log(this.ddCurrency);
-    console.log(this.ddCurrency.updateFilledState  );
-    this.ddCurrency.updateFilledState();
   }
 
   createCartonInfoGroup(): FormGroup {

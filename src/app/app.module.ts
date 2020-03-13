@@ -29,6 +29,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FileUploadModule} from 'primeng/fileupload';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
+import {MenubarModule} from 'primeng/menubar';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
@@ -43,6 +44,10 @@ import { ProductUploadedFileComponent } from './product-uploaded-file/product-up
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MarketComponent } from './market/market.component';
 import { NetworkComponent } from './network/network.component';
+import { TbyMenuBarComponent } from './tby-menu-bar/tby-menu-bar.component';
+import { RequestListComponent } from './request-list/request-list.component';
+import { MyCreationComponent } from './my-creation/my-creation.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +68,10 @@ import { NetworkComponent } from './network/network.component';
     ProductUploadedFileComponent,
     DashboardComponent,
     MarketComponent,
-    NetworkComponent
+    NetworkComponent,
+    TbyMenuBarComponent,
+    RequestListComponent,
+    MyCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +92,7 @@ import { NetworkComponent } from './network/network.component';
     InputMaskModule,
     InputTextareaModule,
     InputTextModule,
+    MenubarModule,
     MultiSelectModule,
     PasswordModule,
     PanelModule,

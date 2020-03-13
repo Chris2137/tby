@@ -29,9 +29,25 @@ export class TestComponent implements OnInit {
          });
        }
 
-      ngOnInit(
-      ): void {
-      }
+     items: MenuItem[];
+      ngOnInit() {
+        this.items = [
+            {
+                label: 'Showroom',
+                styleClass: 'active_item',
+                routerLink: ['/test']
+            },
+            {
+                label: 'Projects',
+            },
+            {
+                label: 'Requests',
+            },
+            {
+                label: 'My Creations'
+            },
+        ];
+    }
 
     uploadedFiles: any[] = [];
 
@@ -39,4 +55,6 @@ export class TestComponent implements OnInit {
         //event.files == files to upload
         console.log(event.files);
     }
+
+
 }

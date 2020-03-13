@@ -1,5 +1,5 @@
 <form [formGroup]="editorForm" (submit)="onSubmit(editorForm.value)">
-  <div class="p-grid  ui-fluid">
+  <div class="p-grid  ui-fluid" style="margin:2px;">
     <div class="p-col-12">
       <h1 i18n="@@header.add_product">Add Product</h1>
     </div>
@@ -29,7 +29,7 @@
           </span>
     </div>
     <div class="p-col-3">
-      <p-dropdown [options]="currencyOptions" formControlName="currency" #ddCurrency></p-dropdown>
+      <p-dropdown [options]="currencyOptions" formControlName="currency" ></p-dropdown>
     </div>
 
     <div class="p-col-12">

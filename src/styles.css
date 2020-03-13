@@ -11,3 +11,7 @@
       height: 44px;
       margin: 0 auto 3px;
 }
+
+.ui-state-active {
+  background-color : #eaeaea;
+}
