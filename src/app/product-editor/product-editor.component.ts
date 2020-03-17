@@ -141,7 +141,7 @@ export class ProductEditorComponent implements OnInit {
           console.log(form.controls[key].errors);
             const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
             console.log(invalidControl.focus);
-            invalidControl.focus();08大戈
+            invalidControl.focus();
             break;
          }
     }
