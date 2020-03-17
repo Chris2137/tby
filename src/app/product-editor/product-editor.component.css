@@ -1,5 +1,5 @@
 span {
-  vertical-align : -webkit-baseline-middle;
+  vertical-align : sub;
 }
 
 .color{
@@ -9,4 +9,16 @@ span {
 i{
   vertical-align:middle;
   font-size: 2em;
+}
+
+
+.always-float-label {
+  top: -.75em;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+.p-col-1, .p-col-2, .p-col-3, .p-col-4, .p-col-5, .p-col-6, .p-col-7, .p-col-8, .p-col-9, .p-col-10, .p-col-11, .p-col-12 {
+  padding: 0.7em;
 }

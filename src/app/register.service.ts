@@ -13,7 +13,7 @@ export class RegisterService {
     return of('new record id');
   }
 
-  resendConfirmEmail(recordId): Observable<String> {
+  resendConfirmEmail(recordId): Observable<string> {
     console.log(`triggered resend email for ${recordId} `);
     return of('Confirm email resent');
   }

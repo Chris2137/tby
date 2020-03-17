@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SelectItem, MessageService } from 'primeng/api';
+
 import { ProductService } from '../product.service';
 import { Product } from '../product';
-import {SelectItem} from 'primeng/api';
+import { ProductEditorComponent } from '../product-editor/product-editor.component';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
+
 export class ProductListComponent implements OnInit {
 
   products : Product[];
@@ -15,13 +18,19 @@ export class ProductListComponent implements OnInit {
   sortKey: string;
   sortField: string;
   sortOrder: number;
+  selectedProduct : Product;
+  display : boolean;
+
+  @ViewChild("editor") editor: ProductEditorComponent;
+
 
   constructor(
+    private messageService: MessageService,
     private productService : ProductService
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.loadProducts();
     this.sortOptions = [
                 {label: 'Date Updated', value: '!updatedDate'},
                 {label: 'Date Created', value: '!createdDate'},
@@ -33,7 +42,7 @@ export class ProductListComponent implements OnInit {
             ];
   }
 
-  getProducts(): void {
+  loadProducts(): void {
     this.productService.getProducts()
         .subscribe(products => this.products = products);
   }
@@ -49,5 +58,38 @@ export class ProductListComponent implements OnInit {
             this.sortOrder = 1;
             this.sortField = value;
         }
+    }
+
+    selectProduct(selectedProduct){
+      this.display = true;
+      this.selectedProduct = selectedProduct;
+      this.editor.populateFormByProduct(selectedProduct);
+    }
+
+    dialogClosed(){
+      this.selectedProduct = null;
+    }
+
+    onSave(){
+      this.editor.onSave();
+    }
+
+    saveCompleted(event){
+      console.log(event);
+      this.display = false;
+      this.selectedProduct = null;
+      this.messageService.add({severity:'success', summary:'Product Saved'});
+      if(event.isNew){
+        console.log('reload page result');
+        this.loadProducts();
+      }
+      else{
+        console.log('update product');
+        var updatedIndex = this.products.findIndex((prod) => prod.id === event.id);
+        console.log(`${updatedIndex} updatedIndex`);
+        if(updatedIndex > -1){
+          this.productService.getProduct(event.id).subscribe( updatedProduct => this.products[updatedIndex] = updatedProduct);
+        }
+      }
     }
 }

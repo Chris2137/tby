@@ -30,7 +30,10 @@ export class TbyMenuBarComponent implements OnInit {
 
     let regexp = new RegExp('\/([0-9a-zA-Z+.-]+)');
     var match = regexp.exec(url);
-    return match[1];
+    if(match != null){
+      return match[1];
+    }
+    return '';
   }
 
 }

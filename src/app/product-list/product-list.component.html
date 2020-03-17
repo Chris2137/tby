@@ -3,7 +3,7 @@
     <div class="ui-helper-clearfix">
       <div class="p-grid">
         <div class="p-col-12 align-right" >
-          <p-button label="Create Product" styleClass="ui-button-info" routerLink="/product"></p-button>
+          <p-button label="Create Product" styleClass="ui-button-info" (click)="selectProduct(null)"></p-button>
         </div>
         <div class="p-col-8">
           <p-dropdown [styleClass]="'sort-by'" [options]="sortOptions" [(ngModel)]="sortKey" (onChange)="onSortChange($event)"></p-dropdown>
@@ -16,14 +16,31 @@
   </p-header>
   <ng-template let-product pTemplate="listItem">
     <div class="p-col-12">
-      <app-product-list-item [product]="product"></app-product-list-item>
+      <app-product-list-item [product]="product" (click)="selectProduct(product)"></app-product-list-item>
     </div>
   </ng-template>
   <ng-template let-product pTemplate="gridItem">
     <div class="p-col-6">
-      <app-product-grid-item [product]="product"></app-product-grid-item>
+      <app-product-grid-item [product]="product" (click)="selectProduct(product)"></app-product-grid-item>
     </div>
   </ng-template>
 
 </p-dataView>
 
+<p-dialog [(visible)]="display" [modal]="true" (onHide)="dialogClosed()"
+          [focusOnShow]="false" styleClass="full-modal" [contentStyle]="{overflow: 'auto'}"
+          [draggable]="false" [resizable]="false" >
+  <p-header>
+    <ng-container *ngIf="!selectedProduct">(New Product)</ng-container>
+    <ng-container *ngIf="selectedProduct">{{selectedProduct.name}}</ng-container>
+  </p-header>
+
+  <app-product-editor (saveCompleted)="saveCompleted($event)" #editor></app-product-editor>
+
+  <p-footer>
+      <button pButton type="button" class="ui-button-raised ui-button-rounded" i18n="@@label.button.save"
+              label="Save" (click)="onSave()"></button>
+  </p-footer>
+</p-dialog>
+
+<p-toast position="bottom-center"></p-toast>

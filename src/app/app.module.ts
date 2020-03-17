@@ -10,6 +10,7 @@ import { SsoComponent } from './sso/sso.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MessageService} from 'primeng/api';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
@@ -21,7 +22,6 @@ import {CardModule} from 'primeng/card';
 import {FieldsetModule} from 'primeng/fieldset';
 import {DataViewModule} from 'primeng/dataview';
 import {TabMenuModule} from 'primeng/tabmenu';
-import {MenuItem} from 'primeng/api';
 import {PanelModule} from 'primeng/panel';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ChipsModule} from 'primeng/chips';
@@ -30,6 +30,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DialogModule} from 'primeng/dialog';
 import {MenubarModule} from 'primeng/menubar';
+import {ToastModule} from 'primeng/toast';
 
 import { TestComponent } from './test/test.component';
 import { RegisterDetailComponent } from './register-detail/register-detail.component';
@@ -98,10 +99,11 @@ import { MyCreationComponent } from './my-creation/my-creation.component';
     PanelModule,
     FieldsetModule,
     TabMenuModule,
+    ToastModule,
 
     FileUploadModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import {CartonInfo} from '../carton-info';
 import { ProductService } from '../product.service';
 import {SelectItem} from 'primeng/api';
 import { ControlContainer } from '@angular/forms';

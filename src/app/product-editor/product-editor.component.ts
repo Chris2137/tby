@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import {SelectItem} from 'primeng/api';
-import {InputText} from 'primeng/inputtext';
-import {Dropdown} from 'primeng/dropdown';
 
 @Component({
   selector: 'app-product-editor',
@@ -19,6 +17,8 @@ export class ProductEditorComponent implements OnInit {
   editorForm;
   isLoading : boolean = false;
 
+  @Output() saveCompleted = new EventEmitter();
+
   currencyOptions : SelectItem[];
   qtyUnitOptions :  SelectItem[];
   timeUnitOptions :  SelectItem[];
@@ -29,9 +29,12 @@ export class ProductEditorComponent implements OnInit {
     private productService : ProductService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private el: ElementRef
    ) {
+   this.el = el;
   this.editorForm = this.formBuilder.group({
+    id: ['',''],
     name: ['', Validators.required],
     minPrice: ['',''],
     maxPrice: ['',''],
@@ -46,7 +49,7 @@ export class ProductEditorComponent implements OnInit {
     size: ['', ''],
     material: ['', ''],
     sellingPoint : ['', ''],
-    category : ['', ''],
+    category : ['', Validators.required],
     photo : ['', ''],
     supportingDoc : ['', ''],
     innerCarton : this.createCartonInfoGroup(),
@@ -54,51 +57,16 @@ export class ProductEditorComponent implements OnInit {
     });
    }
 
+  test(){
+    console.log('test called');
+  }
   ngOnInit(): void {
 
-    var productId = this.route.snapshot.paramMap.get('productId');
-
-    if(productId != null){
-      this.productService.getProduct(productId).subscribe( product =>
-      {
-        this.product = product;
-
-        this.editorForm.patchValue(
-         {
-           name: this.product.name,
-           minPrice: this.product.minPrice,
-           maxPrice: this.product.maxPrice,
-           currency: this.product.currency,
-           minQty: this.product.minQty,
-           minQtyUnit: this.product.minQtyUnit,
-           leadTime: this.product.leadTime,
-           leadTimeUnit: this.product.leadTimeUnit,
-           countryOfOrigin: this.product.countryOfOrigin,
-           description : this.product.description,
-           color : this.product.color,
-           size: this.product.size,
-           material: this.product.material,
-           sellingPoint : this.product.sellingPoint,
-           category : this.product.category,
-           innerCarton : this.product.innerCarton,
-           masterCarton : this.product.masterCarton,
-           photo : this.product.photo,
-           supportingDoc : this.product.supportingDoc
-
-         }
-        );
-      });
-      this.isNew = false;
-    }
-    else{
-      this.isNew = true;
-    }
-
     this.initDropdownOptions();
-
   }
 
   ngAfterViewInit(): void {
+  console.log('ngAfterViewInit called');
   }
 
   createCartonInfoGroup(): FormGroup {
@@ -154,10 +122,29 @@ export class ProductEditorComponent implements OnInit {
       console.log(this.editorForm.get(uploadFor).value);
   }
 
-  onSubmit(formData){
-      this.isLoading = true;
-      this.productService.createProduct(formData).subscribe(id=> {this.isLoading = false; this.router.navigate([`/product/${id}`])});
+  onSave(){
+    if(this.editorForm.invalid){
+      this.focusToFirstInvalidInput(this.editorForm);
+    }
+    else{
+      this.productService.saveProduct(this.editorForm.value).subscribe(id=> {
+        this.isLoading = false;
+        this.saveCompleted.emit({id:id, isNew:this.isNew} );
+      });
+    }
+  }
 
+  focusToFirstInvalidInput(form){
+    for (const key of Object.keys(form.controls)) {
+          if (form.controls[key].invalid) {
+          console.log(`${key} is invalid`);
+          console.log(form.controls[key].errors);
+            const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+            console.log(invalidControl.focus);
+            invalidControl.focus();08大戈
+            break;
+         }
+    }
   }
 
   get photo(){
@@ -165,6 +152,64 @@ export class ProductEditorComponent implements OnInit {
   }
 
   get supportingDoc(){
-      return this.editorForm.get('supportingDoc').value;
+    return this.editorForm.get('supportingDoc').value;
+  }
+
+  loadProductById(productId){
+
+    if(productId != null){
+        this.productService.getProduct(productId).subscribe( product =>
+        {
+          this.populateFormByProduct(product);
+        });
+        this.isNew = false;
+      }
+      else{
+        this.isNew = true;
+      }
+  }
+
+   public populateFormByProduct(product){
+
+    if(product != null){
+
+      this.isNew = false;
+      this.product = product;
+      this.editorForm.patchValue(
+       {
+         id: this.product.id,
+         name: this.product.name,
+         minPrice: this.product.minPrice,
+         maxPrice: this.product.maxPrice,
+         currency: this.product.currency,
+         minQty: this.product.minQty,
+         minQtyUnit: this.product.minQtyUnit,
+         leadTime: this.product.leadTime,
+         leadTimeUnit: this.product.leadTimeUnit,
+         countryOfOrigin: this.product.countryOfOrigin,
+         description : this.product.description,
+         color : this.product.color,
+         size: this.product.size,
+         material: this.product.material,
+         sellingPoint : this.product.sellingPoint,
+         category : this.product.category,
+         innerCarton : this.product.innerCarton,
+         masterCarton : this.product.masterCarton,
+         photo : this.product.photo,
+         supportingDoc : this.product.supportingDoc
+
+       }
+      );
     }
+    else{
+      this.isNew = true;
+      this.editorForm.reset();
+      /* to be removed, just for illustration purpose.*/
+      this.editorForm.patchValue(
+       {
+         id: 'new product id',
+       }
+     );
+    }
+   }
 }

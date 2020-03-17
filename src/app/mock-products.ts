@@ -154,7 +154,7 @@ export const PRODUCTS: Product[] = [
     color: ['Red','Orange'],
     size: ['10pcs', '14pcs'],
     material: ['fish', 'rice'],
-    sellingPoint: [''],
+    sellingPoint: [],
     category: ['Food & Beverage'],
     innerCarton : {
       dimensionUnit : 'm',

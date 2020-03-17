@@ -1,63 +1,58 @@
-<form [formGroup]="editorForm" (submit)="onSubmit(editorForm.value)">
-  <div class="p-grid  ui-fluid" style="margin:2px;">
+<form [formGroup]="editorForm">
+  <input type="hidden" name="id" formControlName="id"/>
+  <div class="p-grid  ui-fluid" style="margin-top: 3px;">
     <div class="p-col-12">
-      <h1 i18n="@@header.add_product">Add Product</h1>
-    </div>
-    <div class="p-col-12">
-      <label for="name" i18n="@@label.product_name">Product name<app-required-input></app-required-input></label>
-    </div>
-    <div class="p-col-12">
-      <input pInputText id="name" type="text" formControlName="name"
-             autocomplete="off">
-    </div>
-    <div class="p-col-12">
-      <label for="minPrice" i18n="@@label.fob_ref_price">Price (FOB Reference Price)</label>
+      <span class="ui-float-label">
+        <input pInputText id="name" type="text" formControlName="name" autocomplete="off" >
+        <label for="name" i18n="@@label.product_name">Product name<app-required-input></app-required-input></label>
+      </span>
     </div>
     <div class="p-col-2">
-          <span class="ui-float-label">
-            <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0" #minInput>
-            <label for="minPrice" i18n="@@label.min">Min</label>
-          </span>
+      <span class="ui-float-label">
+        <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0" #minInput>
+        <label class="always-float-label" for="minPrice" i18n="@@label.min">Min Price</label>
+      </span>
     </div>
     <div class="p-col-1">
-      <span>to</span>
+      <span i18n="@@label.range_to">to</span>
     </div>
     <div class="p-col-2">
-          <span class="ui-float-label">
-            <input pInputText id="maxPrice" type="number" formControlName="maxPrice" autocomplete="off" min="0">
-            <label for="minPrice" i18n="@@label.max">Max</label>
-          </span>
+      <span class="ui-float-label">
+        <input pInputText id="maxPrice" type="number" formControlName="maxPrice" autocomplete="off" min="0">
+        <label class="always-float-label" for="maxPrice" i18n="@@label.max">Max Price</label>
+      </span>
     </div>
     <div class="p-col-3">
       <p-dropdown [options]="currencyOptions" formControlName="currency" ></p-dropdown>
     </div>
 
-    <div class="p-col-12">
-      <label for="minQty" i18n="@@label.min_order_qty">Minimum Order Quantity (unit)</label>
-    </div>
     <div class="p-col-5">
-      <input pInputText id="minQty" type="number" formControlName="minQty" autocomplete="off" min="0">
+      <span class="ui-float-label">
+        <input pInputText id="minQty" type="number" formControlName="minQty" autocomplete="off" min="0">
+        <label for="minQty" i18n="@@label.min_order_qty">Min. Order Qty.</label>
+      </span>
     </div>
     <div class="p-col-3">
       <p-dropdown [options]="qtyUnitOptions" formControlName="minQtyUnit"></p-dropdown>
     </div>
 
-    <div class="p-col-12">
-      <label for="leadTime" i18n="@@label.lead_time">Lead-Time</label>
-    </div>
     <div class="p-col-5">
-      <input pInputText id="leadTime" type="number" formControlName="leadTime" autocomplete="off" min="0">
+       <span class="ui-float-label">
+        <input pInputText id="leadTime" type="number" formControlName="leadTime" autocomplete="off" min="0">
+        <label for="leadTime" i18n="@@label.lead_time">Lead-Time</label>
+      </span>
     </div>
     <div class="p-col-3">
       <p-dropdown [options]="timeUnitOptions" formControlName="leadTimeUnit"></p-dropdown>
     </div>
 
-    <div class="p-col-12">
-      <label for="leadTime" i18n="@@label.country_of_origin">Country of Origin</label>
-    </div>
     <div class="p-col-8">
-      <p-dropdown [options]="countriesOptions" filter="true" formControlName="countryOfOrigin" placeholder="-- select an option --">
-      </p-dropdown>
+      <span class="ui-float-label">
+        <p-dropdown [options]="countriesOptions" filter="true" formControlName="countryOfOrigin" placeholder="-- select an option --">
+        </p-dropdown>
+        <label class="always-float-label" for="countryOfOrigin" i18n="@@label.country_of_origin">Country of Origin</label>
+      </span>
+
     </div>
 
     <div class="p-col-12">
@@ -107,7 +102,7 @@
           <!--Intentionally hide this section, show in the content session instead. -->
         </ng-template>
         <ng-template pTemplate="content">
-          <app-product-uploaded-file [files]="photo" *ngIf="photo.length"></app-product-uploaded-file>
+          <app-product-uploaded-file [files]="photo" *ngIf="photo"></app-product-uploaded-file>
         </ng-template>
       </p-fileUpload>
     </div>
@@ -121,7 +116,9 @@
     </div>
     <div class="p-col-12">
       <p-multiSelect [options]="categoriesOptions" formControlName="category" maxSelectedLabels="8"
-                     defaultLabel="Select categories" i18n-defaultLabel="@@input.select_categories"></p-multiSelect>
+                     defaultLabel="Select categories" i18n-defaultLabel="@@input.select_categories"
+                    (onFocus)="test()"
+      ></p-multiSelect>
     </div>
 
     <div class="p-col-12">
@@ -133,7 +130,7 @@
         <ng-template let-file pTemplate="file">
         </ng-template>
         <ng-template pTemplate="content">
-          <app-product-uploaded-file [files]="supportingDoc" *ngIf="supportingDoc.length"></app-product-uploaded-file>
+          <app-product-uploaded-file [files]="supportingDoc" *ngIf="supportingDoc"></app-product-uploaded-file>
         </ng-template>
 
       </p-fileUpload>
@@ -156,13 +153,8 @@
       <app-product-carton-info formGroupName="masterCarton"
                                i18n-labelText="@@label.section.master_carton" labelText="Master Carton"></app-product-carton-info>
     </div>
-
-    <div class="p-col-12">
-      <button pButton type="submit" class="ui-button-raised ui-button-rounded" i18n="@@label.button.save"
-              label="Save"></button>
-    </div>
   </div>
 </form>
-<p-dialog header="Title" [(visible)]="isLoading">
+<p-dialog header="Title" [(visible)]="isLoading" modal="true">
   <span>Submitting request...</span>
 </p-dialog>

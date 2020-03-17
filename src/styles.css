@@ -7,11 +7,22 @@
   background-repeat: no-repeat;
   background-position: center;
   display: block;
-      width: 199px;
-      height: 44px;
-      margin: 0 auto 3px;
+  width: 199px;
+  height: 44px;
+  margin: 0 auto 3px;
 }
 
 .ui-state-active {
   background-color : #eaeaea;
+}
+
+.full-modal{
+  width : '100vw';
+  height : '100vmax';
+  max-height : 100%;
+}
+
+/* override css in theme.css to set footer button width as auto*/
+body .ui-dialog .ui-dialog-footer button{
+  width : 100%;
 }
