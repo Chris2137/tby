@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
@@ -33,8 +32,6 @@ export class ProductEditorComponent implements OnInit {
     private messageService: MessageService,
     private productService : ProductService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     private el: ElementRef
    ) {
    this.el = el;

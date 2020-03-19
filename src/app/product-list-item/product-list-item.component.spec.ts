@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { Product} from '../product';
 import { ProductListItemComponent } from './product-list-item.component';
 
 describe('ProductListItemComponent', () => {
@@ -16,6 +17,9 @@ describe('ProductListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductListItemComponent);
     component = fixture.componentInstance;
+    const product: Product = new Product();
+    component.product = product;
+
     fixture.detectChanges();
   });
 

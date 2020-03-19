@@ -9,8 +9,12 @@ describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
+    const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+    const loginServiceSpy = jasmine.createSpyObj('LoginService', ['checkLogin', 'login']);
+
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent, Router, LoginService ]
+      declarations: [ LoginComponent ],
+      providers: [{ provide: Router,      useValue: routerSpy }, { provide: LoginService, useValue: loginServiceSpy }]
     })
     .compileComponents();
   }));

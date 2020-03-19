@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { ProductEditorComponent } from './product-editor.component';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ReactiveFormsModule} from '@angular/forms';
+import {ChipsModule} from 'primeng/chips';
 
 describe('ProductEditorComponent', () => {
   let component: ProductEditorComponent;
@@ -11,17 +13,8 @@ describe('ProductEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      providers: [MessageService, {provide: ActivatedRoute,
-                                                         useValue: {
-                                                             snapshot: {
-                                                                 paramMap: {
-                                                                     get(): string {
-                                                                         return '123';
-                                                                     },
-                                                                 },
-                                                             },
-                                                         },}],
+      imports: [ReactiveFormsModule, MultiSelectModule, DropdownModule, ChipsModule],
+      providers: [MessageService],
       declarations: [ ProductEditorComponent ]
     })
     .compileComponents();

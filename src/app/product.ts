@@ -1,6 +1,6 @@
 import {UploadedFile} from './uploaded-file';
 
-export interface Product {
+export class Product {
 
   id : string;
   name : string;

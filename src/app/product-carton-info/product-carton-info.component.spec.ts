@@ -8,8 +8,12 @@ describe('ProductCartonInfoComponent', () => {
   let fixture: ComponentFixture<ProductCartonInfoComponent>;
 
   beforeEach(async(() => {
+
+    const ctrlContainerSpy = jasmine.createSpyObj('ControlContainer', ['control']);
+
     TestBed.configureTestingModule({
-      declarations: [ ProductCartonInfoComponent, ControlContainer ]
+      declarations: [ ProductCartonInfoComponent ],
+      providers: [{ provide: ControlContainer,      useValue: ctrlContainerSpy }]
     })
     .compileComponents();
   }));
