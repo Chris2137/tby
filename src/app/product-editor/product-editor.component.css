@@ -2,8 +2,8 @@ span {
   vertical-align : sub;
 }
 
-.color{
-  width:100%
+.warn {
+  color : red;
 }
 
 i{

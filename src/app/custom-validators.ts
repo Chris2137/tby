@@ -23,3 +23,6 @@ export const ValidatePasswordMatch : ValidatorFn = (control: FormGroup): Validat
 
   return pwd && pwdChk && pwd.value === pwdChk.value ? null : { passwordMismatch: true };
 };
+
+export class CustomValidators{
+ }

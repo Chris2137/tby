@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
-import {SelectItem} from 'primeng/api';
+import {SelectItem, MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-product-editor',
@@ -16,6 +16,7 @@ export class ProductEditorComponent implements OnInit {
   isNew : boolean = true;
   editorForm;
   isLoading : boolean = false;
+  isSubmitted : boolean = false;
 
   @Output() saveCompleted = new EventEmitter();
 
@@ -25,7 +26,11 @@ export class ProductEditorComponent implements OnInit {
   countriesOptions : SelectItem[];
   categoriesOptions : SelectItem[];
 
+
+  @ViewChild("mytest") mytest: ElementRef;
+
   constructor(
+    private messageService: MessageService,
     private productService : ProductService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -123,6 +128,12 @@ export class ProductEditorComponent implements OnInit {
   }
 
   onSave(){
+    this.isSubmitted = true;
+    console.log(this.isSubmitted && this.category.invalid && this.category.errors.required);
+    console.log(this.isSubmitted);
+    console.log(this.category.invalid);
+    console.log(this.category.errors);
+
     if(this.editorForm.invalid){
       this.focusToFirstInvalidInput(this.editorForm);
     }
@@ -140,17 +151,32 @@ export class ProductEditorComponent implements OnInit {
           console.log(`${key} is invalid`);
           console.log(form.controls[key].errors);
             const invalidControl = this.el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
-            console.log(invalidControl.focus);
-            invalidControl.focus();
+            console.log(invalidControl.tagName);
+            if(invalidControl.tagName.toUpperCase().startsWith('P-')){
+              const ctrlAnchor = this.el.nativeElement.querySelector('[id="' + key + '_anchor"]');
+              console.log(ctrlAnchor);
+              if(ctrlAnchor){
+                ctrlAnchor.focus();
+              }
+            }
+            else{
+              invalidControl.focus();
+            }
             break;
          }
     }
   }
 
+  get name(){
+    return this.editorForm.get('name');
+  }
+
+  get category(){
+    return this.editorForm.get('category');
+  }
   get photo(){
     return this.editorForm.get('photo').value;
   }
-
   get supportingDoc(){
     return this.editorForm.get('supportingDoc').value;
   }

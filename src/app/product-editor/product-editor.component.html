@@ -1,12 +1,56 @@
 <form [formGroup]="editorForm">
   <input type="hidden" name="id" formControlName="id"/>
   <div class="p-grid  ui-fluid" style="margin-top: 3px;">
+
+    <div class="p-col-12 warn" *ngIf="(isSubmitted) && name.invalid && name.errors.required" i18n="@@message.validation.required.product_name">
+      Product name is required
+    </div>
     <div class="p-col-12">
       <span class="ui-float-label">
         <input pInputText id="name" type="text" formControlName="name" autocomplete="off" >
         <label for="name" i18n="@@label.product_name">Product name<app-required-input></app-required-input></label>
       </span>
     </div>
+
+    <div class="p-col-12 warn" *ngIf="isSubmitted && category.invalid && category.errors.required" i18n="@@message.validation.required.category">
+      Category is required
+    </div>
+    <div class="p-col-12">
+      <span class="ui-float-label">
+        <a id="category_anchor" href="#"></a>
+        <p-multiSelect [options]="categoriesOptions" formControlName="category" maxSelectedLabels="8"
+                       defaultLabel="Select categories" i18n-defaultLabel="@@input.select_categories"></p-multiSelect>
+        <label class="always-float-label" for="category" i18n="@@label.categories">Categories<app-required-input></app-required-input></label>
+      </span>
+    </div>
+
+    <div class="p-col-12">
+      <span class="ui-float-label">
+        <textarea id="description" pInputTextarea autoResize="autoResize" formControlName="description"
+                  ></textarea>
+        <label for="description" i18n="@@label.description">Description</label>
+      </span>
+    </div>
+
+    <div class="p-col-12">
+      <span class="ui-float-label">
+        <p-fileUpload chooseLabel="Add images" i18n-chooseLabel="@@label.button.add_images" accept=".jpg,.png"
+                      customUpload="true" (uploadHandler)="uploader('photo',$event)" [auto]="true" multiple="multiple">
+        <ng-template let-file pTemplate="file">
+          <!--Intentionally hide this section, show in the content session instead. -->
+        </ng-template>
+        <ng-template pTemplate="content">
+          <app-product-uploaded-file [files]="photo" *ngIf="photo"></app-product-uploaded-file>
+        </ng-template>
+      </p-fileUpload>
+        <label class="always-float-label" for="images" i18n="@@label.images">Images (JPG and PNG only)</label>
+      </span>
+    </div>
+
+    <div class="p-col-12">
+      <hr/>
+    </div>
+
     <div class="p-col-2">
       <span class="ui-float-label">
         <input pInputText id="minPrice" type="number" formControlName="minPrice" autocomplete="off" min="0" #minInput>
@@ -52,81 +96,40 @@
         </p-dropdown>
         <label class="always-float-label" for="countryOfOrigin" i18n="@@label.country_of_origin">Country of Origin</label>
       </span>
-
     </div>
 
     <div class="p-col-12">
-      <label for="color" i18n="@@label.colors">Colors</label>
+      <span class="ui-float-label">
+        <p-chips inputId="color" formControlName="color" i18n-placeholder="@@input.enter_available_colors" placeholder="Enter available colors"></p-chips>
+        <label class="always-float-label" for="color" i18n="@@label.colors">Colors</label>
+      </span>
     </div>
 
     <div class="p-col-12">
-      <p-chips inputId="color" formControlName="color" i18n-placeholder="@@input.enter_available_colors" placeholder="Enter available colors"></p-chips>
+      <span class="ui-float-label">
+        <p-chips inputId="size" formControlName="size" i18n-placeholder="@@input.enter_available_sizes" placeholder="Enter available sizes"></p-chips>
+        <label class="always-float-label" for="size" i18n="@@label.sizes">Size</label>
+      </span>
     </div>
 
     <div class="p-col-12">
-      <label for="size" i18n="@@label.sizes">Size</label>
-    </div>
-    <div class="p-col-12">
-      <p-chips inputId="size" formControlName="size" i18n-placeholder="@@input.enter_available_sizes" placeholder="Enter available sizes"></p-chips>
-    </div>
-
-    <div class="p-col-12">
-      <label for="material" i18n="@@label.material">Material</label>
-    </div>
-    <div class="p-col-12">
-      <p-chips inputId="material" formControlName="material" i18n-placeholder="@@input.enter_available_material" placeholder="Enter available material"></p-chips>
+      <span class="ui-float-label">
+        <p-chips inputId="material" formControlName="material" i18n-placeholder="@@input.enter_available_material" placeholder="Enter available material"></p-chips>
+        <label class="always-float-label" for="material" i18n="@@label.material">Material</label>
+      </span>
     </div>
 
     <div class="p-col-12">
-      <label for="sellingPoint" i18n="@@label.selling_points">Selling Points</label>
-    </div>
-    <div class="p-col-12">
-      <p-chips inputId="sellingPoint" formControlName="sellingPoint" i18n-placeholder="@@input.enter_selling_points" placeholder="Enter selling points"></p-chips>
-    </div>
-
-    <div class="p-col-12">
-      <label for="description" i18n="@@label.description">Description</label>
-    </div>
-    <div class="p-col-12">
-      <textarea id="description" pInputTextarea autoResize="autoResize" formControlName="description"
-                i18n-placeholder="input.description" placeholder="You can provide product details here e.g. Features, instructions…"></textarea>
+      <span class="ui-float-label">
+        <textarea id="sellingPoint" pInputTextarea autoResize="autoResize" formControlName="sellingPoint"></textarea>
+        <label for="sellingPoint" i18n="@@label.selling_points">Selling Points</label>
+      </span>
     </div>
 
     <div class="p-col-12">
-      <label for="images" i18n="@@label.images">Images (JPG and PNG only)</label>
-    </div>
-    <div class="p-col-12">
-      <p-fileUpload chooseLabel="Add images" i18n-chooseLabel="@@label.button.add_images" accept=".jpg,.png"
-                    customUpload="true" (uploadHandler)="uploader('photo',$event)" [auto]="true" multiple="multiple">
-        <ng-template let-file pTemplate="file">
-          <!--Intentionally hide this section, show in the content session instead. -->
-        </ng-template>
-        <ng-template pTemplate="content">
-          <app-product-uploaded-file [files]="photo" *ngIf="photo"></app-product-uploaded-file>
-        </ng-template>
-      </p-fileUpload>
-    </div>
-
-    <div class="p-col-12">
-        <hr/>
-    </div>
-
-    <div class="p-col-12">
-      <label for="category" i18n="@@label.categories">Categories</label>
-    </div>
-    <div class="p-col-12">
-      <p-multiSelect [options]="categoriesOptions" formControlName="category" maxSelectedLabels="8"
-                     defaultLabel="Select categories" i18n-defaultLabel="@@input.select_categories"
-                    (onFocus)="test()"
-      ></p-multiSelect>
-    </div>
-
-    <div class="p-col-12">
-      <label for="docs" i18n="@@label.supporting_documents">Supporting Documents</label>
-    </div>
-    <div class="p-col-12">
-      <p-fileUpload chooseLabel="Add files" i18n-chooseLabel="@@label.button.add_files"
-                    customUpload="true" (uploadHandler)="uploader('supportingDoc', $event)" [auto]="true" multiple="multiple">
+      <span class="ui-float-label">
+        <p-fileUpload chooseLabel="Add files" i18n-chooseLabel="@@label.button.add_files"
+                      customUpload="true" (uploadHandler)="uploader('supportingDoc', $event)" [auto]="true" multiple="multiple">
         <ng-template let-file pTemplate="file">
         </ng-template>
         <ng-template pTemplate="content">
@@ -134,6 +137,8 @@
         </ng-template>
 
       </p-fileUpload>
+        <label class="always-float-label" for="docs" i18n="@@label.supporting_documents">Supporting Documents</label>
+      </span>
     </div>
 
     <div class="p-col-12">
@@ -141,14 +146,12 @@
     </div>
 
     <div class="p-col-12">
-      <h2 i18n="@@header.additional_information">Additional Information</h2>
+      <span i18n="@@header.additional_information"><strong>Additional Information</strong></span>
     </div>
-
     <div class="p-col-12">
       <app-product-carton-info formGroupName="innerCarton"
                                i18n-labelText="@@label.section.inner_carton" labelText="Inner Carton"></app-product-carton-info>
     </div>
-
     <div class="p-col-12">
       <app-product-carton-info formGroupName="masterCarton"
                                i18n-labelText="@@label.section.master_carton" labelText="Master Carton"></app-product-carton-info>
@@ -158,3 +161,5 @@
 <p-dialog header="Title" [(visible)]="isLoading" modal="true">
   <span>Submitting request...</span>
 </p-dialog>
+
+<p-toast position="bottom-center"></p-toast>

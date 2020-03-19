@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { TbyMenuBarComponent } from './tby-menu-bar.component';
+import { Router } from '@angular/router';
 
 describe('TbyMenuBarComponent', () => {
   let component: TbyMenuBarComponent;
@@ -8,7 +9,7 @@ describe('TbyMenuBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TbyMenuBarComponent ]
+      declarations: [ TbyMenuBarComponent, Router ]
     })
     .compileComponents();
   }));

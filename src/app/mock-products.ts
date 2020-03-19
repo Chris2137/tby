@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
   color: ['Red','Green'],
   size: ['S','M', 'L'],
   material: ['raw fish'],
-  sellingPoint: ['no additive', 'fresh', 'eco-friendly'],
+  sellingPoint: 'eco-friendly',
   category: ['Food & Beverage'],
   innerCarton : {
     dimensionUnit : 'cm',
@@ -64,7 +64,7 @@ export const PRODUCTS: Product[] = [
   color: ['Purple','Yellow'],
   size: ['110mm', '130mm'],
   material: ['plastic'],
-  sellingPoint: ['Extremely detail'],
+  sellingPoint: 'Extremely detail',
   category: ['Toys & Hobbies', 'Gifts & Crafts'],
   innerCarton : {
     dimensionUnit : 'm',
@@ -109,7 +109,7 @@ export const PRODUCTS: Product[] = [
   color: ['Purple','Blue'],
   size: ['115mm', '135mm'],
   material: ['plastic', 'alloy'],
-  sellingPoint: ['Unique in market'],
+  sellingPoint: 'Unique in market',
   category: ['Toys & Hobbies', 'Gifts & Crafts'],
   innerCarton : {
     dimensionUnit : 'm',
@@ -154,7 +154,7 @@ export const PRODUCTS: Product[] = [
     color: ['Red','Orange'],
     size: ['10pcs', '14pcs'],
     material: ['fish', 'rice'],
-    sellingPoint: [],
+    sellingPoint: '',
     category: ['Food & Beverage'],
     innerCarton : {
       dimensionUnit : 'm',

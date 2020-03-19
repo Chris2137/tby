@@ -21,7 +21,7 @@ export interface Product {
   color : string[];
   size : string[];
   material : string[];
-  sellingPoint : string[];
+  sellingPoint : string;
   category : string[];
   innerCarton : {
     dimensionUnit : string;

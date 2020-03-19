@@ -20,6 +20,7 @@
   width : '100vw';
   height : '100vmax';
   max-height : 100%;
+  overflow:auto;
 }
 
 /* override css in theme.css to set footer button width as auto*/
